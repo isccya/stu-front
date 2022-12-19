@@ -1,24 +1,15 @@
-# stu-front
+# 第一天
+```
+引入vuerouter库
+创建两个普通组件(顶部和左部导航条)
+创建四个路由组件
+关闭语法检查
+按需引入配置ui组件库
 
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
 ```
 
-### Compiles and minifies for production
+# 第二天
 ```
-npm run build
+引入ui组件库
+配置路由
 ```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).

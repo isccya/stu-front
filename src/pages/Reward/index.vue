@@ -1,5 +1,7 @@
 <template>
-  
+  <div>
+    奖励
+  </div>
 </template>
 
 <script>

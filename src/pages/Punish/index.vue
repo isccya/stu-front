@@ -1,5 +1,7 @@
 <template>
-  
+  <div>
+    punish
+  </div>
 </template>
 
 <script>
