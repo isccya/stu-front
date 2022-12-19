@@ -8,10 +8,11 @@
         <el-header>
           <Header></Header>
         </el-header>
-        <el-main>Main</el-main>
+        <el-main>
+          <router-view></router-view>
+        </el-main>
       </el-container>
     </el-container>
-    <router-view></router-view>
   </div>
 </template>
 
@@ -28,6 +29,6 @@ export default {
 
 <style scoped>
 .el-header {
-  padding: 0px; 
+  padding: 0px;
 }
 </style>

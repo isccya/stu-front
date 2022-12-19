@@ -1,6 +1,6 @@
 <template>
   <div>
-    
+    学生个人信息
   </div>
 </template>
 

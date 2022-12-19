@@ -2,6 +2,8 @@
   <div class="head-container">
     <div class="l-container">
       <el-button icon="el-icon-menu" size="mini"></el-button>
+      <!-- 面包屑 -->
+      <span class='bread'>面包屑</span>
     </div>
     <div class="r-container"></div>
   </div>
@@ -21,6 +23,11 @@ export default {};
 }
 .l-container{
   margin-left: 20px;
+}
+.bread{
+  color:white;
+  font-size: 16px;
+  margin-left: 10px;
 }
 
 
