@@ -5,7 +5,9 @@
         <Left></Left>
       </el-aside>
       <el-container>
-        <el-header><Header></Header></el-header>
+        <el-header>
+          <Header></Header>
+        </el-header>
         <el-main>Main</el-main>
       </el-container>
     </el-container>
@@ -24,5 +26,8 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+.el-header {
+  padding: 0px; 
+}
 </style>

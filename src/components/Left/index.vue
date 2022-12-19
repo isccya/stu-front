@@ -22,16 +22,16 @@
         </el-menu-item>
       </router-link>
       <router-link to="/showPerson">
-      <el-menu-item index="3">
-        <i class="el-icon-menu"></i>
-        <span slot="title">学生信息</span>
-      </el-menu-item>
+        <el-menu-item index="3">
+          <i class="el-icon-menu"></i>
+          <span slot="title">学生信息</span>
+        </el-menu-item>
       </router-link>
       <router-link to="/Change">
-      <el-menu-item index="4">
-        <i class="el-icon-menu"></i>
-        <span slot="title">学生流动</span>
-      </el-menu-item>
+        <el-menu-item index="4">
+          <i class="el-icon-menu"></i>
+          <span slot="title">学生流动</span>
+        </el-menu-item>
       </router-link>
 
       <el-submenu index="5">
@@ -42,7 +42,6 @@
           <el-menu-item index="1-1">选项1</el-menu-item>
         </el-menu-item-group>
       </el-submenu>
-    
     </el-menu>
   </div>
 </template>
@@ -54,15 +53,16 @@ export default {
       isCollapse: false, //是否水平折叠收起菜单
     };
   },
-  methods: {
-   
-  },
+  methods: {},
 };
 </script>
 
 <style scoped>
 .el-menu {
   height: 100vh;
+  border-right: none;/*除去默认的1px边界宽度*/
+  overflow: hidden;/*避免出现滚动条*/
+
 }
 .el-menu h3 {
   color: #fff;
