@@ -5,7 +5,7 @@ import showPerson from './showPerson'
 import Punish from './Punish'
 import Reward from './Reward'
 import Change from './Change'
-
+import Tap from './Tab'
 
 
 
@@ -15,6 +15,7 @@ export default new Vuex.Store({
      showPerson,
      Change,
      Reward,
-     Punish
+     Punish,
+     Tap
     }
 })

@@ -4,7 +4,7 @@ import nprogress from 'nprogress'//进度条
 import 'nprogress/nprogress.css'//进度条样式
 import qs from "qs"
 const requests=axios.create({
-    baseURL:'120.79.92.244:8080',
+    baseURL:'http://120.79.92.244:8080',
     timeout:5000,
 })
 // start进度条开始,done进度条结束 

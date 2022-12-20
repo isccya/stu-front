@@ -5,13 +5,18 @@
 </template>
 
 <script>
-
+import {reqStudentList,reqClassList} from './api'
 export default {
   name: 'App',
   components: {
 
   },
+  mounted(){
+    // reqStudentList(1,5);
+    // reqClassList();
+  }
 }
+
 </script>
 
 <style>

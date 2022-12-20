@@ -1,5 +1,5 @@
 const actions = {
-
+    
 }
 
 const mutations = {
@@ -7,7 +7,7 @@ const mutations = {
 }
 
 const state = {
-
+   
 }
 const getters={
     

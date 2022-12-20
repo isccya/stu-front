@@ -7,7 +7,7 @@ const mutations = {
 }
 
 const state = {
-
+    studentList:[],
 }
 const getters={
     

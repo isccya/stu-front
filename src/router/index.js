@@ -12,24 +12,33 @@ export default new vueRouter({
         {
             path: '/',
             component: Main,
-            children:[
+            children: [
                 {
-                    path:'reward',
-                    component:Reward
+                    name: '学生奖励',
+                    path: 'reward',
+                    component: Reward
                 },
                 {
-                    path:'Punish',
-                    component:Punish
+                    name: '学生惩罚',
+                    path: 'Punish',
+                    component: Punish
                 },
                 {
-                    path:'showPerson',
-                    component:showPerson
+                    name: '学生信息',
+                    path: 'showPerson',
+                    component: showPerson
                 },
                 {
-                    path:'Change',
-                    component:Change
+                    name: '学生流动',
+                    path: 'Change',
+                    component: Change
                 },
+                // 重定向,项目跑起来时候定向到首页
+                {
+                    path: '*',
+                    redirect: '/showPerson',
+                }
             ]
-        }
+        },
     ]
 })
