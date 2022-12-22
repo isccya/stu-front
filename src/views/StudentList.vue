@@ -1,5 +1,6 @@
 <template>
   <div>
+    <el-button type="primary">录入学生信息</el-button>
     <el-table
         :data="studentList"
         stripe
@@ -7,20 +8,24 @@
       <el-table-column
           prop="id"
           label="学号"
+          align="center"
           width="180">
       </el-table-column>
       <el-table-column
           prop="name"
           label="姓名"
+          align="center"
           width="180">
       </el-table-column>
       <el-table-column
           prop="sex"
           label="性别"
+          align="center"
           :formatter="sexFormatter">
       </el-table-column>
       <el-table-column
           prop="className"
+          align="center"
           label="班级">
         <template slot-scope="scope">
           <div v-if="scope.row.className !== null">
@@ -33,6 +38,7 @@
       </el-table-column>
       <el-table-column
           prop="departmentName"
+          align="center"
           label="院系">
         <template slot-scope="scope">
           <div v-if="scope.row.departmentName !== null">
@@ -44,6 +50,7 @@
         </template>
       </el-table-column>
       <el-table-column
+          align="center"
           prop="birthday"
           label="生日">
         <template slot-scope="scope">
@@ -56,6 +63,7 @@
         </template>
       </el-table-column>
       <el-table-column
+          align="center"
           prop="nativePlace"
           label="籍贯">
         <template slot-scope="scope">
@@ -68,6 +76,7 @@
         </template>
       </el-table-column>
       <el-table-column
+          align="center"
           prop="monitorName"
           label="班长">
         <template slot-scope="scope">
@@ -77,6 +86,18 @@
           <div v-else>
             -
           </div>
+        </template>
+      </el-table-column>
+      <el-table-column
+          align="center"
+          label="操作">
+        <template>
+          <el-tooltip class="item" effect="dark" content="更新" placement="top-start">
+            <el-button el-button type="success" icon="el-icon-edit" circle></el-button>
+          </el-tooltip>
+          <el-tooltip class="item" effect="dark" content="删除" placement="top-end">
+            <el-button type="danger" icon="el-icon-delete" circle></el-button>
+          </el-tooltip>
         </template>
       </el-table-column>
     </el-table>
@@ -139,7 +160,12 @@ export default {
 .el-card {
   min-height: 500px;
 }
+
 .el-table {
   margin-bottom: 20px;
+}
+
+.el-button {
+  margin-bottom: 15px;
 }
 </style>

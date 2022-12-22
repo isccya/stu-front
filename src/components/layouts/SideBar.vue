@@ -5,7 +5,7 @@
     </div>
     <el-menu
         :router=true
-        default-active="2"
+        default-active="/student/list"
         background-color="#304156"
         text-color="#ffffff"
         active-text-color="#409eff">
@@ -13,15 +13,15 @@
         <i class="el-icon-user-solid"></i>
         <span slot="title">学生列表</span>
       </el-menu-item>
-      <el-menu-item index="/student/reward">
+      <el-menu-item index="/student/reward_code">
         <i class="el-icon-takeaway-box"></i>
         <span slot="title">学生奖励</span>
       </el-menu-item>
-      <el-menu-item index="/student/punishment">
+      <el-menu-item index="/student/punish_code">
         <i class="el-icon-mobile"></i>
         <span slot="title">学生惩罚</span>
       </el-menu-item>
-      <el-menu-item index="/student/change">
+      <el-menu-item index="/student/change_code">
         <i class="el-icon-coordinate"></i>
         <span slot="title">学生流动</span>
       </el-menu-item>

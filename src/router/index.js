@@ -4,7 +4,9 @@ import BaseLayout from "@/components/layouts/BaseLayout.vue";
 import StudentReward from "@/views/StudentReward.vue";
 import StudentPunishment from "@/views/StudentPunishment.vue";
 import StudentList from "@/views/StudentList.vue";
-import StudentChange from "@/views/StudentChange.vue";
+import ChangeCode from "@/views/ChangeCode.vue";
+import PunishCode from "@/views/PunishCode.vue";
+import RewardCode from "@/views/RewardCode.vue";
 
 Vue.use(VueRouter);
 
@@ -15,13 +17,13 @@ const routes = [
         children: [
             {
                 name: 'StudentReward',
-                path: '/student/reward',
-                component: StudentReward
+                path: '/student/reward_code',
+                component: RewardCode
             },
             {
                 name: 'StudentPunishment',
-                path: '/student/punishment',
-                component: StudentPunishment
+                path: '/student/punish_code',
+                component: PunishCode
             },
             {
                 name: 'StudentList',
@@ -29,9 +31,9 @@ const routes = [
                 component: StudentList
             },
             {
-                name: 'StudentChange',
-                path: '/student/change',
-                component: StudentChange
+                name: 'ChangeCode',
+                path: '/student/change_code',
+                component: ChangeCode
             }
         ]
     }

@@ -3,7 +3,7 @@ import ElementUi from "element-ui";
 const axiosApi = axios.create({
     baseURL: 'http://120.79.92.244:8080'
 });
-export const getRewardLevelList = () => {
+export const getRewardCodeList = () => {
     return axiosApi({
         url: '/reward/reward_level',
         method: 'get'
@@ -34,14 +34,26 @@ export const addStudentList = (form) => {
 export const deleteStudentById = (id) => {
     return axiosApi({
         url: `/student/delete/${id}`,
-        method: 'DELETE',
+        method: 'DELETE'
     })
 }
 // 更新学生
 export const updateStudent = () => {
     return axiosApi({
         url: `/student/update`,
-        method: 'PUT',
+        method: 'PUT'
+    })
+}
+export const getChangeCodeList = () => {
+    return axiosApi({
+        url: `/change/change_code`,
+        method: 'GET'
+    })
+}
+export const getPunishLevelList = () => {
+    return axiosApi({
+        url: `/punishment/punish_level`,
+        method: 'GET'
     })
 }
 axiosApi.interceptors.response.use(response => {
