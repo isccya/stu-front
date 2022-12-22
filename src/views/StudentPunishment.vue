@@ -1,6 +1,6 @@
 <template>
   <div>
-    punish
+    学生惩罚
   </div>
 </template>
 
@@ -10,6 +10,6 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 
 </style>

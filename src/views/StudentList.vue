@@ -1,0 +1,145 @@
+<template>
+  <div>
+    <el-table
+        :data="studentList"
+        stripe
+        style="width: 100%">
+      <el-table-column
+          prop="id"
+          label="学号"
+          width="180">
+      </el-table-column>
+      <el-table-column
+          prop="name"
+          label="姓名"
+          width="180">
+      </el-table-column>
+      <el-table-column
+          prop="sex"
+          label="性别"
+          :formatter="sexFormatter">
+      </el-table-column>
+      <el-table-column
+          prop="className"
+          label="班级">
+        <template slot-scope="scope">
+          <div v-if="scope.row.className !== null">
+            {{ scope.row.className }}
+          </div>
+          <div v-else>
+            -
+          </div>
+        </template>
+      </el-table-column>
+      <el-table-column
+          prop="departmentName"
+          label="院系">
+        <template slot-scope="scope">
+          <div v-if="scope.row.departmentName !== null">
+            {{ scope.row.departmentName }}
+          </div>
+          <div v-else>
+            -
+          </div>
+        </template>
+      </el-table-column>
+      <el-table-column
+          prop="birthday"
+          label="生日">
+        <template slot-scope="scope">
+          <div v-if="scope.row.birthday !== null">
+            {{ scope.row.birthday }}
+          </div>
+          <div v-else>
+            -
+          </div>
+        </template>
+      </el-table-column>
+      <el-table-column
+          prop="nativePlace"
+          label="籍贯">
+        <template slot-scope="scope">
+          <div v-if="scope.row.nativePlace !== null">
+            {{ scope.row.nativePlace }}
+          </div>
+          <div v-else>
+            -
+          </div>
+        </template>
+      </el-table-column>
+      <el-table-column
+          prop="monitorName"
+          label="班长">
+        <template slot-scope="scope">
+          <div v-if="scope.row.monitorName !== null">
+            {{ scope.row.monitorName }}
+          </div>
+          <div v-else>
+            -
+          </div>
+        </template>
+      </el-table-column>
+    </el-table>
+    <el-pagination
+        @size-change="handleSizeChange"
+        @current-change="handleCurrentChange"
+        :current-page="current"
+        :page-sizes="[5, 10]"
+        :page-size="size"
+        layout="total, sizes, prev, pager, next, jumper"
+        :total="total">
+    </el-pagination>
+  </div>
+</template>
+
+<script>
+import {getStudentListByPage} from '@/api/axios'
+
+export default {
+  name: 'StudentList',
+  data() {
+    return {
+      current: 1,
+      size: 5,
+      total: 0,
+      studentList: []
+    }
+  },
+  created() {
+    this.getPage(this.current, this.size);
+  },
+  methods: {
+    sexFormatter(row) {
+      if (row.sex === 0) {
+        return '男'
+      } else if (row.sex === 1) {
+        return '女'
+      }
+    },
+    getPage(current, size) {
+      getStudentListByPage(current, size).then(res => {
+        const data = res.data;
+        this.current = data.current;
+        this.total = data.total;
+        this.size = data.size;
+        this.studentList = data.studentList;
+      })
+    },
+    handleCurrentChange(current) {
+      this.getPage(current, this.size);
+    },
+    handleSizeChange(size) {
+      this.getPage(this.current, size);
+    }
+  }
+}
+</script>
+
+<style scoped>
+.el-card {
+  min-height: 500px;
+}
+.el-table {
+  margin-bottom: 20px;
+}
+</style>

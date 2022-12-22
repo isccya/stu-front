@@ -1,6 +1,6 @@
 <template>
   <div>
-    奖励
+    学生奖励
   </div>
 </template>
 
@@ -10,6 +10,6 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 
 </style>
