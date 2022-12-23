@@ -1,7 +1,7 @@
 import axios from 'axios';
 import ElementUi from "element-ui";
 const axiosApi = axios.create({
-    baseURL: 'http://120.79.92.244:8080'
+    baseURL: 'http://localhost:8000'
 });
 export const getRewardCodeList = () => {
     return axiosApi({
@@ -27,7 +27,7 @@ export const addStudent = (form) => {
     return axiosApi({
         url: `/student/add`,
         method: 'POST',
-        data:form
+        data: form
     })
 }
 // 删除学生
@@ -38,10 +38,11 @@ export const deleteStudentById = (id) => {
     })
 }
 // 更新学生
-export const updateStudent = () => {
+export const updateStudent = (form) => {
     return axiosApi({
         url: `/student/update`,
-        method: 'PUT'
+        method: 'PUT',
+        data: form
     })
 }
 export const getChangeCodeList = () => {

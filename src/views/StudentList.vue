@@ -93,7 +93,7 @@
           label="操作">
         <template slot-scope="scope">
           <el-tooltip class="item" effect="dark" content="更新" placement="top-start">
-            <el-button el-button type="success" icon="el-icon-edit" circle></el-button>
+            <el-button el-button type="success" icon="el-icon-edit" circle @click="openUpdateStudentDialog(scope.row)"></el-button>
           </el-tooltip>
           <el-tooltip class="item" effect="dark" content="删除" placement="top-end">
             <el-button type="danger" icon="el-icon-delete" circle @click="deleteStudent(scope.row.id)"></el-button>
@@ -116,16 +116,16 @@
         width="30%"
         center>
       <template>
-        <el-form :label-position="top" label-width="80px" :model="studentForm">
+        <el-form :label-position="top" label-width="80px" :model="studentAddForm">
           <el-form-item label="学号" :required=true>
-            <el-input v-model="studentForm.id"></el-input>
+            <el-input v-model="studentAddForm.id"></el-input>
           </el-form-item>
           <el-form-item label="姓名" :required=true>
-            <el-input v-model="studentForm.name"></el-input>
+            <el-input v-model="studentAddForm.name"></el-input>
           </el-form-item>
           <el-form-item label="性别" :required=true>
             <template>
-              <el-select v-model="studentForm.sex" placeholder="请选择">
+              <el-select v-model="studentAddForm.sex" placeholder="请选择">
                 <el-option
                     v-for="option in sexOptions"
                     :key="option.value"
@@ -136,10 +136,17 @@
             </template>
           </el-form-item>
           <el-form-item label="生日">
-            <el-input v-model="studentForm.birthday"></el-input>
+            <template>
+              <el-date-picker
+                  v-model="studentAddForm.birthday"
+                  type="date"
+                  value-format="yyyy-MM-dd"
+                  placeholder="选择日期">
+              </el-date-picker>
+            </template>
           </el-form-item>
           <el-form-item label="籍贯">
-            <el-input v-model="studentForm.nativePlace"></el-input>
+            <el-input v-model="studentAddForm.nativePlace"></el-input>
           </el-form-item>
         </el-form>
       </template>
@@ -148,12 +155,56 @@
         <el-button type="primary" @click="addStudent">确 定</el-button>
       </span>
     </el-dialog>
+    <el-dialog
+        title="更新学生信息"
+        :visible.sync="isUpdateStudentDialogVisible"
+        width="30%"
+        center>
+      <template>
+        <el-form :label-position="top" label-width="80px" :model="studentUpdateForm">
+          <el-form-item label="学号" :required=true>
+            <el-input v-model="studentUpdateForm.id"></el-input>
+          </el-form-item>
+          <el-form-item label="姓名" :required=true>
+            <el-input v-model="studentUpdateForm.name"></el-input>
+          </el-form-item>
+          <el-form-item label="性别" :required=true>
+            <template>
+              <el-select v-model="studentUpdateForm.sex" placeholder="请选择">
+                <el-option
+                    v-for="option in sexOptions"
+                    :key="option.value"
+                    :label="option.label"
+                    :value="option.value">
+                </el-option>
+              </el-select>
+            </template>
+          </el-form-item>
+          <el-form-item label="生日">
+            <template>
+              <el-date-picker
+                  v-model="studentUpdateForm.birthday"
+                  type="date"
+                  value-format="yyyy-MM-dd"
+                  placeholder="选择日期">
+              </el-date-picker>
+            </template>
+          </el-form-item>
+          <el-form-item label="籍贯">
+            <el-input v-model="studentUpdateForm.nativePlace"></el-input>
+          </el-form-item>
+        </el-form>
+      </template>
+      <span slot="footer" class="dialog-footer">
+        <el-button @click="isUpdateStudentDialogVisible = false">取 消</el-button>
+        <el-button type="primary" @click="updateStudent">确 定</el-button>
+      </span>
+    </el-dialog>
   </div>
 </template>
 
 <script>
-import {getStudentListByPage, addStudent,deleteStudentById} from '@/api/axios'
-
+import {getStudentListByPage, addStudent,deleteStudentById, updateStudent} from '@/api/axios'
 export default {
   name: 'StudentList',
   data() {
@@ -163,12 +214,13 @@ export default {
       total: 0,
       studentList: [],
       isAddStudentDialogVisible: false,
-      studentForm: {},
+      isUpdateStudentDialogVisible: false,
+      studentAddForm: {},
+      studentUpdateForm: {},
       sexOptions: [
         {label: '男', value: 0},
         {label: '女', value: 1}
       ]
-
     }
   },
   created() {
@@ -198,13 +250,13 @@ export default {
       this.getPage(this.current, size);
     },
     addStudent() {
-      addStudent(this.studentForm);
+      addStudent(this.studentAddForm);
       this.$message({
         message: '录入成功！',
         type: 'success'
       });
       this.isAddStudentDialogVisible = false;
-      this.getPage(this.current, this.size)
+      this.$router.go(0)
     },
     deleteStudent(id) {
       this.$confirm('此操作将永久删除该学生信息, 是否继续?', '提示', {
@@ -224,6 +276,21 @@ export default {
           message: '已取消删除'
         });
       });
+    },
+    loadStudentInfo(row) {
+      this.studentUpdateForm = row
+    },
+    openUpdateStudentDialog(row) {
+      this.loadStudentInfo(row)
+      this.isUpdateStudentDialogVisible = true
+    },
+    updateStudent() {
+      updateStudent(this.studentUpdateForm)
+      this.$message({
+        message: '更新成功',
+        type: 'success'
+      })
+      this.$router.go(0)
     }
   }
 }
