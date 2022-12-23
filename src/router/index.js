@@ -1,18 +1,16 @@
 import VueRouter from 'vue-router';
 import Vue from 'vue';
 import BaseLayout from "@/components/layouts/BaseLayout.vue";
-import StudentReward from "@/views/StudentReward.vue";
-import StudentPunishment from "@/views/StudentPunishment.vue";
-import StudentList from "@/views/StudentList.vue";
-import ChangeCode from "@/views/ChangeCode.vue";
-import PunishCode from "@/views/PunishCode.vue";
-import RewardCode from "@/views/RewardCode.vue";
-import ChangeSearch from "@/views/ChangeSearch.vue";
-import RewardSearch from "@/views/RewardSearch.vue";
-import PunishSearch from "@/views/PunishSearch.vue";
-import RewardAdd from "@/views/RewardAdd.vue";
-import PunishAdd from "@/views/PunishAdd.vue";
-import ChangeAdd from "@/views/ChangeAdd.vue";
+import StudentList from "@/views/student/StudentList.vue";
+import ChangeCode from "@/views/change/ChangeCode.vue";
+import PunishCode from "@/views/punish/PunishCode.vue";
+import RewardCode from "@/views/reward/RewardCode.vue";
+import ChangeSearch from "@/views/change/ChangeSearch.vue";
+import RewardSearch from "@/views/reward/RewardSearch.vue";
+import PunishSearch from "@/views/punish/PunishSearch.vue";
+import RewardAdd from "@/views/reward/RewardAdd.vue";
+import PunishAdd from "@/views/punish/PunishAdd.vue";
+import ChangeAdd from "@/views/change/ChangeAdd.vue";
 
 Vue.use(VueRouter);
 
