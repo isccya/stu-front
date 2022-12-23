@@ -1,7 +1,8 @@
 import axios from 'axios';
 import ElementUi from "element-ui";
+
 const axiosApi = axios.create({
-    baseURL: 'http://localhost:8000'
+    baseURL: 'http://120.79.92.244:8080'
 });
 export const getRewardCodeList = () => {
     return axiosApi({
@@ -16,7 +17,7 @@ export const getClassList = () => {
     })
 }
 // 获取学生列表
-export const getStudentListByPage = (current,size) => {
+export const getStudentListByPage = (current, size) => {
     return axiosApi({
         url: `/student/list/${current}/${size}`,
         method: 'get'
@@ -56,6 +57,46 @@ export const getPunishLevelList = () => {
         url: `/punishment/punish_level`,
         method: 'GET'
     })
+}
+
+export const getRewardListById = (id) => {
+        return axiosApi({
+            url: `/reward/list/${id}`,
+            method: "GET"
+        })
+}
+export const getPunishListById = (id) => {
+        return axiosApi({
+            url: `/punishment/list/${id}`,
+            method: "GET"
+        })
+}
+export const addReward = (form) => {
+    return axiosApi({
+        url: `/reward/add`,
+        method: 'POST',
+        data: form
+    })
+}
+export const addPunish = (form) => {
+    return axiosApi({
+        url: `/punishment/add`,
+        method: 'POST',
+        data: form
+    })
+}
+export const addChange = (form) => {
+    return axiosApi({
+        url: `/change/add`,
+        method: 'POST',
+        data: form
+    })
+}
+export const getChangeListById = (id) => {
+        return axiosApi({
+            url: `/change/list/${id}`,
+            method: "GET"
+        })
 }
 axiosApi.interceptors.response.use(response => {
     const result = response.data;
