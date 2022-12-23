@@ -23,7 +23,7 @@ export const getStudentListByPage = (current,size) => {
     })
 };
 // 添加学生
-export const addStudentList = (form) => {
+export const addStudent = (form) => {
     return axiosApi({
         url: `/student/add`,
         method: 'POST',

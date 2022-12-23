@@ -6,7 +6,7 @@ import router from './router'
 // 引入vuex
 import store from './store/index'
 // 全局引入element-ui组件库
-import ElementUI from 'element-ui';
+import ElementUI from 'element-ui'
 // 全局引入element-ui组件样式
 import 'element-ui/lib/theme-chalk/index.css';
 
