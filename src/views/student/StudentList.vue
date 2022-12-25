@@ -267,9 +267,10 @@ export default {
         deleteStudentById(id)
         this.$message({
           type: 'success',
-          message: '删除成功!'
+          message: '删除成功!',
+          duration: 1000
         });
-        this.$router.go(0)
+         this.$router.go(0)
       }).catch(() => {
         this.$message({
           type: 'info',

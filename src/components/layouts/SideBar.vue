@@ -5,10 +5,14 @@
     </div>
     <el-menu
         :router=true
-        default-active="/student/list"
+        :default-active=activeIndex
         background-color="#304156"
         text-color="#ffffff"
         active-text-color="#409eff">
+      <el-menu-item index="/home">
+        <i class="el-icon-s-home"></i>
+        <span>首页</span>
+      </el-menu-item>
       <el-submenu index="1">
         <template slot="title">
           <i class="el-icon-menu"></i>
@@ -78,6 +82,16 @@
 </template>
 <script>
 
+export default {
+  data() {
+    return {
+      activeIndex: '/home'
+    }
+  },
+  created() {
+    this.activeIndex = this.$route.path
+  }
+}
 </script>
 <style scoped>
 .title {

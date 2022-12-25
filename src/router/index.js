@@ -11,74 +11,98 @@ import PunishSearch from "@/views/punish/PunishSearch.vue";
 import RewardAdd from "@/views/reward/RewardAdd.vue";
 import PunishAdd from "@/views/punish/PunishAdd.vue";
 import ChangeAdd from "@/views/change/ChangeAdd.vue";
-
+import vuex from '@/store/index'
+import Home from "@/views/Home.vue";
 Vue.use(VueRouter);
 
 const routes = [
     {
         path: '/',
-        redirect: '/student/list',
+        redirect: '/home',
         component: BaseLayout,
         children: [
             {
+              name: 'Home',
+              path: '/home',
+              component: Home,
+            },
+            {
                 name: 'StudentReward',
                 path: '/student/reward/code',
-                component: RewardCode
+                component: RewardCode,
+                meta: {title: '奖励代码表', module: '奖励管理'}
             },
             {
                 name: 'StudentPunishment',
                 path: '/student/punish/code',
-                component: PunishCode
+                component: PunishCode,
+                meta: {title: '处分代码表', module: '处分管理'}
             },
             {
                 name: 'StudentList',
                 path: '/student/list',
-                component: StudentList
+                component: StudentList,
+                meta: {title: '学生列表', module: '学生管理'}
             },
             {
                 name: 'ChangeCode',
                 path: '/student/change/code',
-                component: ChangeCode
+                component: ChangeCode,
+                meta: {title: '流动代码表', module: '流动管理'}
             },
             {
                 name: 'ChangeSearch',
                 path: '/student/change/search',
-                component: ChangeSearch
+                component: ChangeSearch,
+                meta: {title: '查询流动记录', module: '流动管理'}
             },
             {
                 name: 'PunishSearch',
                 path: '/student/punish/search',
-                component: PunishSearch
+                component: PunishSearch,
+                meta: {title: '查询处分记录', module: '处分管理'}
             },
             {
                 name: 'RewardSearch',
                 path: '/student/reward/search',
-                component: RewardSearch
+                component: RewardSearch,
+                meta: {title: '查询奖励记录', module: '奖励管理'}
             },
             {
                 name: 'RewardAdd',
                 path: '/student/reward/add',
-                component: RewardAdd
+                component: RewardAdd,
+                meta: {title: '添加奖励记录', module: '奖励管理'}
             },
             {
                 name: 'PunishAdd',
                 path: '/student/punish/add',
-                component: PunishAdd
+                component: PunishAdd,
+                meta: {title: '添加处分记录', module: '处分管理'}
             },
             {
                 name: 'ChangeAdd',
                 path: '/student/change/add',
-                component: ChangeAdd
+                component: ChangeAdd,
+                meta: {title: '添加流动记录', module: '流动管理'}
             },
         ]
     },
     {
         name: 'Other',
         path: '*',
-        redirect: '/student/list'
+        redirect: '/home'
     }
 ]
-export default new VueRouter({
+
+const vueRouter = new VueRouter({
     mode: 'history',
     routes
 })
+
+// 全局路由守卫
+vueRouter.beforeEach((to, from,next) => {
+
+    next()
+})
+export default vueRouter
