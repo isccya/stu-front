@@ -13,6 +13,9 @@ import PunishAdd from "@/views/punish/PunishAdd.vue";
 import ChangeAdd from "@/views/change/ChangeAdd.vue";
 import vuex from '@/store/index'
 import Home from "@/views/Home.vue";
+import ClassList from "@/views/class/ClassList.vue";
+import DepartmentList from "@/views/department/DepartmentList.vue";
+
 Vue.use(VueRouter);
 
 const routes = [
@@ -22,9 +25,10 @@ const routes = [
         component: BaseLayout,
         children: [
             {
-              name: 'Home',
-              path: '/home',
-              component: Home,
+                name: 'Home',
+                path: '/home',
+                component: Home,
+                meta: {title: '首页'}
             },
             {
                 name: 'StudentReward',
@@ -86,6 +90,18 @@ const routes = [
                 component: ChangeAdd,
                 meta: {title: '添加流动记录', module: '流动管理'}
             },
+            {
+                name: 'ClassList',
+                path: '/class/list',
+                component: ClassList,
+                meta: {title: '班级列表', module: '班级管理'}
+            },
+            {
+                name: 'DepartmentList',
+                path: '/department/list',
+                component: DepartmentList,
+                meta: {title: '院系列表', module: '院系管理'}
+            }
         ]
     },
     {
@@ -101,7 +117,7 @@ const vueRouter = new VueRouter({
 })
 
 // 全局路由守卫
-vueRouter.beforeEach((to, from,next) => {
+vueRouter.beforeEach((to, from, next) => {
 
     next()
 })
