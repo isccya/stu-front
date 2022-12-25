@@ -5,10 +5,14 @@
     </div>
     <el-menu
         :router=true
-        default-active="/student/list"
+        :default-active=activeIndex
         background-color="#304156"
         text-color="#ffffff"
         active-text-color="#409eff">
+      <el-menu-item index="/home">
+        <i class="el-icon-s-home"></i>
+        <span>首页</span>
+      </el-menu-item>
       <el-submenu index="1">
         <template slot="title">
           <i class="el-icon-menu"></i>
@@ -73,11 +77,41 @@
           <span slot="title">添加流动记录</span>
         </el-menu-item>
       </el-submenu>
+      <el-submenu index="5">
+        <template slot="title">
+          <i class="el-icon-menu"></i>
+          <span>班级管理</span>
+        </template>
+        <el-menu-item index="/class/list">
+          <i class="el-icon-s-help"></i>
+          <span>班级列表</span>
+        </el-menu-item>
+      </el-submenu>
+      <el-submenu index="6">
+        <template slot="title">
+          <i class="el-icon-menu"></i>
+          <span>院系管理</span>
+        </template>
+        <el-menu-item index="/department/list">
+          <i class="el-icon-s-help"></i>
+          <span>院系列表</span>
+        </el-menu-item>
+      </el-submenu>
     </el-menu>
   </div>
 </template>
 <script>
 
+export default {
+  data() {
+    return {
+      activeIndex: '/home'
+    }
+  },
+  created() {
+    this.activeIndex = this.$route.path
+  }
+}
 </script>
 <style scoped>
 .title {

@@ -4,11 +4,13 @@
       <SideBar></SideBar>
     </el-aside>
     <el-container>
-      <el-header>Header</el-header>
+      <el-header>
+        <Header></Header>
+      </el-header>
       <el-main>
         <el-card>
           <el-breadcrumb separator-class="el-icon-arrow-right">
-            <el-breadcrumb-item :to="{ path: '/student/list' }">学生列表</el-breadcrumb-item>
+            <el-breadcrumb-item>{{$route.meta.title}}</el-breadcrumb-item>
           </el-breadcrumb>
           <el-divider></el-divider>
           <router-view/>
@@ -32,8 +34,6 @@ export default {
 
 <style scoped>
 .el-header {
-  background-color: #B3C0D1;
-  color: #333;
   text-align: center;
   line-height: 60px;
 }

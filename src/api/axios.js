@@ -7,13 +7,19 @@ const axiosApi = axios.create({
 export const getRewardCodeList = () => {
     return axiosApi({
         url: '/reward/reward_level',
-        method: 'get'
+        method: 'GET'
     })
 }
 export const getClassList = () => {
     return axiosApi({
         url: '/class/list',
-        method: 'get'
+        method: 'GET'
+    })
+}
+export const getDepartmentList = () => {
+    return axiosApi({
+        url: 'department/list',
+        method: "GET"
     })
 }
 // 获取学生列表
