@@ -12,8 +12,8 @@
           <el-breadcrumb separator-class="el-icon-arrow-right">
             <el-breadcrumb-item>{{$route.meta.title}}</el-breadcrumb-item>
           </el-breadcrumb>
-          <el-divider></el-divider>
-          <router-view/>
+          <el-divider></el-divider><!-- 一行分割线 -->
+          <router-view/><!-- 路由展示位置 -->
         </el-card>
       </el-main>
     </el-container>
@@ -43,6 +43,7 @@ export default {
   width: 200px !important;
   min-height: 100vh;
   max-height: 160vh;
+  overflow: none;
 }
 
 .el-main {
