@@ -11,7 +11,6 @@ import PunishSearch from "@/views/punish/PunishSearch.vue";
 import RewardAdd from "@/views/reward/RewardAdd.vue";
 import PunishAdd from "@/views/punish/PunishAdd.vue";
 import ChangeAdd from "@/views/change/ChangeAdd.vue";
-import vuex from '@/store/index'
 import Home from "@/views/Home.vue";
 import ClassList from "@/views/class/ClassList.vue";
 import DepartmentList from "@/views/department/DepartmentList.vue";

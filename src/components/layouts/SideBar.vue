@@ -121,4 +121,5 @@ export default {
   font-size: medium;
   color: #ffffff;
 }
+
 </style>
