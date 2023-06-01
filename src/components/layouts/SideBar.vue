@@ -3,12 +3,8 @@
     <div class="title">
       学生信息管理系统
     </div>
-    <el-menu
-        :router=true
-        :default-active=activeIndex
-        background-color="#304156"
-        text-color="#ffffff"
-        active-text-color="#409eff">
+    <el-menu :router=true :default-active=activeIndex background-color="#304156" text-color="#ffffff"
+      active-text-color="#409eff">
       <el-menu-item index="/home">
         <i class="el-icon-s-home"></i>
         <span>首页</span>
@@ -21,6 +17,18 @@
         <el-menu-item index="/student/list">
           <i class="el-icon-user-solid"></i>
           <span slot="title">学生列表</span>
+        </el-menu-item>
+        <el-menu-item index="/student/studentadd">
+          <i class="el-icon-circle-plus"></i>
+          <span slot="title">添加学生成绩</span>
+        </el-menu-item>
+        <el-menu-item index="/student/search">
+          <i class="el-icon-search"></i>
+          <span slot="title">学号查询学生成绩</span>
+        </el-menu-item>
+        <el-menu-item index="/student/search2">
+          <i class="el-icon-search"></i>
+          <span slot="title">姓名查询学生成绩</span>
         </el-menu-item>
       </el-submenu>
       <el-submenu index="2">
@@ -121,5 +129,4 @@ export default {
   font-size: medium;
   color: #ffffff;
 }
-
 </style>

@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import echarts from 'echarts'
 import App from './App.vue'
 
 // 引入路由
@@ -17,3 +18,5 @@ new Vue({
     router: router,
     store: store
 }).$mount('#app')
+
+

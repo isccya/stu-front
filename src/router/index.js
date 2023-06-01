@@ -2,6 +2,9 @@ import VueRouter from 'vue-router';
 import Vue from 'vue';
 import BaseLayout from "@/components/layouts/BaseLayout.vue";
 import StudentList from "@/views/student/StudentList.vue";
+import StudentAdd from "@/views/student/StudentAdd.vue"
+import StudentSearch from "@/views/student/StudentSearch.vue"
+import StudentSearch2 from "@/views/student/StudentSearch2.vue"
 import ChangeCode from "@/views/change/ChangeCode.vue";
 import PunishCode from "@/views/punish/PunishCode.vue";
 import RewardCode from "@/views/reward/RewardCode.vue";
@@ -46,7 +49,24 @@ const routes = [
                 path: '/student/list',
                 component: StudentList,
                 meta: {title: '学生列表', module: '学生管理'}
+            },  {
+                name: 'StudentAdd',
+                path: '/student/studentadd',
+                component: StudentAdd,
+                meta: {title: '添加学生成绩', module: '学生管理'}
             },
+            {
+                name: 'StudentSearch',
+                path: '/student/search',
+                component: StudentSearch,
+                meta: {title: '学号查询学生成绩', module: '学生管理'}
+            }, 
+            {
+                name: 'StudentSearch2',
+                path: '/student/search2',
+                component: StudentSearch2,
+                meta: {title: '姓名查询学生成绩', module: '学生管理'}
+            }, 
             {
                 name: 'ChangeCode',
                 path: '/student/change/code',

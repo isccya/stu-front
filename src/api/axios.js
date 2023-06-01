@@ -2,7 +2,7 @@ import axios from 'axios';
 import ElementUi from "element-ui";
 
 const axiosApi = axios.create({
-    baseURL: 'http://120.79.92.244:8080'
+    baseURL: 'http://120.79.92.244:8081'
 });
 export const getRewardCodeList = () => {
     return axiosApi({
@@ -50,6 +50,35 @@ export const updateStudent = (form) => {
         url: `/student/update`,
         method: 'PUT',
         data: form
+    })
+}
+// 一键导出学生成绩
+export function exportScore(flag){
+    return axiosApi({
+        url:`/scores/exportScoresContent/${flag}`,
+        method:'get',
+    })
+}
+// 添加学生成绩
+export function addStudentScore(data){
+    return axiosApi({
+        url:"/scores/add",
+        method:'post',
+        data,
+    })
+}
+// 通过学号查找学生成绩
+export const getScoreListById = (id) => {
+    return axiosApi({
+        url: `/scores/get-byId/${id}`,
+        method: 'get',
+    })
+}
+// 通过姓名查找学生成绩
+export const getScoreListByName = (name) => {
+    return axiosApi({
+        url: `/scores/getByName/${name}`,
+        method: 'get',
     })
 }
 export const getChangeCodeList = () => {
