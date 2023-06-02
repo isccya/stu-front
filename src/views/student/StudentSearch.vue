@@ -99,8 +99,8 @@ export default {
       this.drawLine();
       getScoreListById(this.id).then((res) => {
         this.scoreList.push(res.data);
-        this.option.series[0].data[0] = this.scoreList[0].java;
-        this.option.series[0].data[1] = this.scoreList[0].math;
+        this.option.series[0].data[0] = this.scoreList[0].math;
+        this.option.series[0].data[1] = this.scoreList[0].java;
         this.option.series[0].data[2] = this.scoreList[0].english;
         this.option.series[0].data[3] = this.scoreList[0].sports;
         this.drawLine();
