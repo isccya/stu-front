@@ -99,9 +99,6 @@
     <el-dialog title="更新学生信息" :visible.sync="isUpdateStudentDialogVisible" width="30%" center>
       <template>
         <el-form label-width="80px" :model="studentUpdateForm">
-          <el-form-item label="学号" :required="true">
-            <el-input v-model="studentUpdateForm.id"></el-input>
-          </el-form-item>
           <el-form-item label="姓名" :required="true">
             <el-input v-model="studentUpdateForm.name"></el-input>
           </el-form-item>

@@ -81,6 +81,13 @@ export const getScoreListByName = (name) => {
         method: 'get',
     })
 }
+export function changeStudentScore(data){
+    return axiosApi({
+        url:`/scores/update`,
+        method:'post',
+        data,
+    })
+}
 export const getChangeCodeList = () => {
     return axiosApi({
         url: `/change/change_code`,

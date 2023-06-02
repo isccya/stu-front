@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-form :model="rewardForm" label-width="150px">
+    <el-form :model="scoreForm" label-width="150px">
       <el-form-item label="学生学号">
         <el-col :span="4">
           <el-input v-model="scoreForm.studentId"></el-input>

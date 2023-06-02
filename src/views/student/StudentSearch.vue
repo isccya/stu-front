@@ -25,20 +25,44 @@
         </el-table-column>
         <el-table-column prop="sports" label="体育" width="180">
         </el-table-column>
+        <el-table-column prop="sports" label="修改" width="200" style="display: flex;justify-content:center">
+          <el-button type="primary" icon="el-icon-edit" circle @click="ChangeStudentScore = true"></el-button>
+        </el-table-column>
       </el-table>
     </div>
+    <!-- 修改学生成绩弹出框 -->
+    <el-dialog title="提示" :visible.sync="ChangeStudentScore" width="30%" center>
+      <el-form ref="scoreForm" :model="scoreForm" label-width="80px">
+        <el-form-item label="数学">
+          <el-input v-model="scoreForm.math"></el-input>
+        </el-form-item>
+        <el-form-item label="java">
+          <el-input v-model="scoreForm.java"></el-input>
+        </el-form-item>
+        <el-form-item label="英语">
+          <el-input v-model="scoreForm.english"></el-input>
+        </el-form-item>
+        <el-form-item label="体育">
+          <el-input v-model="scoreForm.sports"></el-input>
+        </el-form-item>
+      </el-form>
+      <span slot="footer" class="dialog-footer">
+        <el-button @click="ChangeStudentScore = false">取 消</el-button>
+        <el-button type="primary" @click="changeStudent">确 定</el-button>
+      </span>
+    </el-dialog>
     <div id="myChart" :style="{ float: 'left', width: '100%', height: '400px' }"></div>
   </div>
 </template>
 
 <script>
-import { getScoreListById } from "@/api/axios";
+import { getScoreListById, changeStudentScore } from "@/api/axios";
 import * as echarts from "echarts";
 export default {
   name: "StudentSearch",
   data() {
     return {
-      id: null,
+      id: null,//查询的学号
       scoreList: [],
       show: false,
       option: {
@@ -59,14 +83,19 @@ export default {
             }
           }
         ]
-      }
+      },
+      ChangeStudentScore: false,
+      scoreForm: {
+        // "classId":"1",
+      },
     }
   },
   methods: {
     getScoreListById() {
       this.show = false;
+      this.scoreForm.studentId = this.id;
       this.scoreList.pop();
-      this.option.series[0].data=[0,0,0,0];
+      this.option.series[0].data = [0, 0, 0, 0];
       this.drawLine();
       getScoreListById(this.id).then((res) => {
         this.scoreList.push(res.data);
@@ -82,6 +111,23 @@ export default {
     drawLine() {
       let myChart = echarts.init(document.getElementById("myChart"));
       myChart.setOption(this.option);
+    },
+    changeStudent() {
+      console.log(this.scoreForm);
+      changeStudentScore(this.scoreForm).then(() => {
+        this.ChangeStudentScore = false;
+        this.$message({
+          type: "success",
+          message: "修改成功!",
+          duration: 1000,
+        });
+        this.getScoreListById();
+      }).catch(() => {
+        this.$message({
+          type: "info",
+          message: "修改失败!",
+        });
+      })
     }
   },
   mounted() {
